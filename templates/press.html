@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Tracker | Presse</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <nav class="sidebar opened">
+        <a href="/" class="logo_part">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="30" height="30" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><path d="M28.6,11.3V4.8c0-0.8-0.6-1.4-1.4-1.4h-6.5c-1.2,0-2.4,0.4-3.4,1c-0.5,0.3-0.9,0.7-1.3,1.2c-1.1-1.3-2.8-2.2-4.7-2.2H4.8  C4,3.4,3.4,4,3.4,4.8v6.5c0,1.9,0.9,3.5,2.2,4.7c-1.3,1.1-2.2,2.8-2.2,4.7v6.5c0,0.8,0.6,1.4,1.4,1.4h6.5c0.8,0,1.4-0.6,1.4-1.4  c0-0.8-0.6-1.4-1.4-1.4H6.2v-5.1c0-1.8,1.4-3.2,3.2-3.2h5.1v5.1c0,3.4,2.7,6.1,6.1,6.1h6.5c0.8,0,1.4-0.6,1.4-1.4v-6.5  c0-1.9-0.9-3.5-2.2-4.7C27.8,14.9,28.6,13.2,28.6,11.3z M9.5,14.6c-1.8,0-3.2-1.4-3.2-3.2V6.2h5.1c1.8,0,3.2,1.4,3.2,3.2v5.1H9.5z   M25.8,20.7v5.1h-5.1c-1.8,0-3.2-1.4-3.2-3.2v-5.1h5.1C24.3,17.4,25.8,18.9,25.8,20.7z M17.4,14.6V9.5c0-1.1,0.5-2.1,1.4-2.7  c0.5-0.4,1.2-0.6,1.8-0.6h5.1v5.1c0,1.8-1.4,3.2-3.2,3.2H17.4z" fill = "currentColor"/></svg>
+            </div>
+            <!-- <p class="logo_name">Club Tracker</p> -->
+        </a>
+        <div class="pages">
+            <a href="/" class="item home" status="selected">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+                </div>
+            </a>
+            <a href="/leadclub" class="item home" status="none" title="Club Leadership">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-160q75 0 127.5-52.5T660-340q0-75-52.5-127.5T480-520q-75 0-127.5 52.5T300-340q0 75 52.5 127.5T480-160ZM363-572q20-11 42.5-17.5T451-598L350-800H250l113 228Zm234 0 114-228H610l-85 170 19 38q14 4 27 8.5t26 11.5ZM256-208q-17-29-26.5-62.5T220-340q0-36 9.5-69.5T256-472q-42 14-69 49.5T160-340q0 47 27 82.5t69 49.5Zm448 0q42-14 69-49.5t27-82.5q0-47-27-82.5T704-472q17 29 26.5 62.5T740-340q0 36-9.5 69.5T704-208ZM480-80q-40 0-76.5-11.5T336-123q-9 2-18 2.5t-19 .5q-91 0-155-64T80-339q0-87 58-149t143-69L120-880h280l80 160 80-160h280L680-559q85 8 142.5 70T880-340q0 92-64 156t-156 64q-9 0-18.5-.5T623-123q-31 20-67 31.5T480-80Zm0-260ZM363-572 250-800l113 228Zm234 0 114-228-114 228ZM406-230l28-91-74-53h91l29-96 29 96h91l-74 53 28 91-74-56-74 56Z"/></svg>
+                </div>
+            </a>
+            <a href="/englishclub" class="item home" status="none" title="Club Anglais">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M600-360h160v-80H600v80Zm0-160h160v-80H600v80ZM200-280q-33 0-56.5-23.5T120-360v-240q0-33 23.5-56.5T200-680h160q33 0 56.5 23.5T440-600H200v240h160v-80h-80v-80h160v160q0 33-23.5 56.5T360-280H200Zm320 0v-400h240q33 0 56.5 23.5T840-600v60q0 25-17.5 42.5T780-480q25 0 42.5 17.5T840-420v60q0 33-23.5 56.5T760-280H520Z"/></svg>
+                </div>
+            </a>
+            <a href="/pressclub" class="item home" status="none" title="Club Presse">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M160-120q-33 0-56.5-23.5T80-200v-640l67 67 66-67 67 67 67-67 66 67 67-67 67 67 66-67 67 67 67-67 66 67 67-67v640q0 33-23.5 56.5T800-120H160Zm0-80h280v-240H160v240Zm360 0h280v-80H520v80Zm0-160h280v-80H520v80ZM160-520h640v-120H160v120Z"/></svg>
+                </div>
+            </a>
+            <a href="/infoclub" class="item home" status="none" title="Club Informatique">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M120-160v-160h720v160H120Zm80-40h80v-80h-80v80Zm-80-440v-160h720v160H120Zm80-40h80v-80h-80v80Zm-80 280v-160h720v160H120Zm80-40h80v-80h-80v80Z"/></svg>
+                </div>
+            </a>
+        </div>
+    </nav>
+    <section class="main">
+        <header class="header">
+            <div class="left">
+                <div class="menu_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </div>
+                <p class="text">
+                    Masquer la barre des tâches
+                </p>
+            </div>
+        </header>
+        <section class="content">
+            
+        </section>
+    </section>
+    
+    <script src="{{ url_for('static', filename='js/dash/home.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+
+

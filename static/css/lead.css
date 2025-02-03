@@ -1,0 +1,292 @@
+.content .cards {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    height: 100vh;
+    width: 100%;
+}
+
+.content .cards .card {
+    width: 100%;
+    background: none;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.content .cards .card .review {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.content .cards .card .events {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4fr 5fr;
+    gap: 15px;
+}
+
+.content .cards .card .review .review-card {
+    width: 100%;
+    border-radius: 4px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--light-text-color-1);
+}
+
+.content .cards .card .review .review-card#nb-events .head .svg {
+    background: var(--color18);
+}
+
+.content .cards .card .review .review-card#last-event-nb-participants .head .svg {
+    background: var(--color9);
+}
+
+.content .cards .card .review .review-card#best-class .head .svg {
+    background: var(--color17);
+}
+
+.content .cards .card .review .review-card#history .head .svg {
+    background: var(--color6);
+}
+
+.content .cards .card .review .review-card .head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.content .cards .card .review .review-card .head .svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--white);
+}
+
+.content .cards .card .review .review-card .head .text {
+    font-size: 14px;
+    text-align: left;
+    padding: 2px 8px;
+}
+
+.content .cards .card .review .review-card .cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.content .cards .card .review .review-card .cont .val {
+    font-size: 3.5rem;
+}
+
+.content .cards .card .review .review-card .cont .text {
+    font-size: 14px;
+}
+
+.content .cards .card .review .review-card .other {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.content .cards .card .review .review-card .other .date {
+    font-size: 15px;
+}
+
+/* .content .cards .card .review .review-card .other .icon {
+    width: 25%;
+} */
+
+.content .cards .card .review .review-card .other .icon .svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .cards .card .review .review-card .other .growth-part {
+    /* width: 75%; */
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.content .cards .card .review .review-card .other .growth-part .growth {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.content .cards .card .review .review-card .other .growth-part .inter {
+    margin-right: 5px;
+}
+
+
+.content .cards .card .review .review-card .table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.content .cards .card .review .review-card .table .avg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.content .cards .card .review .review-card .table .avg .title {
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.content .cards .card .review .review-card .table .avg .value {
+    font-size: 2rem;
+}
+
+.content .cards .card .review .review-card .table .avg .value span {
+    font-size: 20px;
+}
+
+.content .cards .card .events .events-card {
+    width: 100%;
+    border-radius: 4px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--light-text-color-1);
+}
+
+.content .cards .card.second {
+    padding: 20px;
+    background: var(--light-highlight);
+}
+
+.content .cards .card .history {
+    width: 100%;
+}
+
+.content .cards .card .history .text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0 10px;
+    margin-bottom: 15px;
+}
+
+.content .cards .card .history .hist-cont {
+    background: var(--light-bg);
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+.content .cards .card .history table {
+    font-size: 13px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.content .cards .card .history table thead {
+    border-bottom: 3px solid var(--color13);
+}
+
+.content .cards .card .history table thead tr {
+    text-align: center;
+}
+
+.content .cards .card .history table tbody tr {
+    text-align: center;
+    padding: 3px;
+    border-bottom: 1px solid var(--color10);
+}
+
+.content .cards .card .history table tbody tr td {
+    text-align: center;
+    padding: 3px;
+}
+
+.content .cards .card.second .title {
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: left;
+    padding: 2px 15px;
+}
+
+.content .cards .card.second .academic_year {
+    padding: 2px 25px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: left;
+    width: 100%;
+}
+
+.content .cards .card.second .recap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    background: var(--light-bg);
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.content .cards .card.second .recap .recap-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .cards .card.second .recap .recap-card .val {
+    font-size: 1.8rem;
+    color: var(--light-text-color-1);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.content .cards .card.second .recap .recap-card .val .val-m {
+    text-align: center;
+    margin-right: 2px;
+}
+
+.content .cards .card.second .recap .recap-card .val .val-ext {
+    font-size: 1rem;
+    color: var(--light-text-color-2);
+    text-align: center;
+}
+
+.content .cards .card.second .recap .recap-card .text {
+    font-size: 1rem;
+    color: var(--light-text-color-2);
+    text-align: center;
+}
+
+
+

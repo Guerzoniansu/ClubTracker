@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Tracker | Leadership</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lead.css') }}">
+    <script>
+        event_dates = {{ club_event_days["labels"]|tojson }}
+    </script>
+</head>
+<body>
+    <nav class="sidebar opened">
+        <a href="/" class="logo_part">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="30" height="30" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><path d="M28.6,11.3V4.8c0-0.8-0.6-1.4-1.4-1.4h-6.5c-1.2,0-2.4,0.4-3.4,1c-0.5,0.3-0.9,0.7-1.3,1.2c-1.1-1.3-2.8-2.2-4.7-2.2H4.8  C4,3.4,3.4,4,3.4,4.8v6.5c0,1.9,0.9,3.5,2.2,4.7c-1.3,1.1-2.2,2.8-2.2,4.7v6.5c0,0.8,0.6,1.4,1.4,1.4h6.5c0.8,0,1.4-0.6,1.4-1.4  c0-0.8-0.6-1.4-1.4-1.4H6.2v-5.1c0-1.8,1.4-3.2,3.2-3.2h5.1v5.1c0,3.4,2.7,6.1,6.1,6.1h6.5c0.8,0,1.4-0.6,1.4-1.4v-6.5  c0-1.9-0.9-3.5-2.2-4.7C27.8,14.9,28.6,13.2,28.6,11.3z M9.5,14.6c-1.8,0-3.2-1.4-3.2-3.2V6.2h5.1c1.8,0,3.2,1.4,3.2,3.2v5.1H9.5z   M25.8,20.7v5.1h-5.1c-1.8,0-3.2-1.4-3.2-3.2v-5.1h5.1C24.3,17.4,25.8,18.9,25.8,20.7z M17.4,14.6V9.5c0-1.1,0.5-2.1,1.4-2.7  c0.5-0.4,1.2-0.6,1.8-0.6h5.1v5.1c0,1.8-1.4,3.2-3.2,3.2H17.4z" fill = "currentColor"/></svg>
+            </div>
+            <!-- <p class="logo_name">Club Tracker</p> -->
+        </a>
+        <div class="pages">
+            <a href="/" class="item home" status="none">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+                </div>
+            </a>
+            <a href="/leadclub" class="item home" status="selected" title="Club Leadership">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-160q75 0 127.5-52.5T660-340q0-75-52.5-127.5T480-520q-75 0-127.5 52.5T300-340q0 75 52.5 127.5T480-160ZM363-572q20-11 42.5-17.5T451-598L350-800H250l113 228Zm234 0 114-228H610l-85 170 19 38q14 4 27 8.5t26 11.5ZM256-208q-17-29-26.5-62.5T220-340q0-36 9.5-69.5T256-472q-42 14-69 49.5T160-340q0 47 27 82.5t69 49.5Zm448 0q42-14 69-49.5t27-82.5q0-47-27-82.5T704-472q17 29 26.5 62.5T740-340q0 36-9.5 69.5T704-208ZM480-80q-40 0-76.5-11.5T336-123q-9 2-18 2.5t-19 .5q-91 0-155-64T80-339q0-87 58-149t143-69L120-880h280l80 160 80-160h280L680-559q85 8 142.5 70T880-340q0 92-64 156t-156 64q-9 0-18.5-.5T623-123q-31 20-67 31.5T480-80Zm0-260ZM363-572 250-800l113 228Zm234 0 114-228-114 228ZM406-230l28-91-74-53h91l29-96 29 96h91l-74 53 28 91-74-56-74 56Z"/></svg>
+                </div>
+            </a>
+            <a href="/englishclub" class="item home" status="none" title="Club Anglais">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M600-360h160v-80H600v80Zm0-160h160v-80H600v80ZM200-280q-33 0-56.5-23.5T120-360v-240q0-33 23.5-56.5T200-680h160q33 0 56.5 23.5T440-600H200v240h160v-80h-80v-80h160v160q0 33-23.5 56.5T360-280H200Zm320 0v-400h240q33 0 56.5 23.5T840-600v60q0 25-17.5 42.5T780-480q25 0 42.5 17.5T840-420v60q0 33-23.5 56.5T760-280H520Z"/></svg>
+                </div>
+            </a>
+            <a href="/pressclub" class="item home" status="none" title="Club Presse">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M160-120q-33 0-56.5-23.5T80-200v-640l67 67 66-67 67 67 67-67 66 67 67-67 67 67 66-67 67 67 67-67 66 67 67-67v640q0 33-23.5 56.5T800-120H160Zm0-80h280v-240H160v240Zm360 0h280v-80H520v80Zm0-160h280v-80H520v80ZM160-520h640v-120H160v120Z"/></svg>
+                </div>
+            </a>
+            <a href="/infoclub" class="item home" status="none" title="Club Informatique">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M120-160v-160h720v160H120Zm80-40h80v-80h-80v80Zm-80-440v-160h720v160H120Zm80-40h80v-80h-80v80Zm-80 280v-160h720v160H120Zm80-40h80v-80h-80v80Z"/></svg>
+                </div>
+            </a>
+        </div>
+    </nav>
+    <section class="main">
+        <header class="header">
+            <div class="left">
+                <div class="menu_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </div>
+                <p class="text">
+                    Masquer la barre des tâches
+                </p>
+            </div>
+        </header>
+        <section class="content">
+            <div class="cards">
+                <div class="card">
+                    <div class="review">
+                        <div class="review-card" id="nb-events">
+                            <div class="head">
+                                <div class="svg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M580-240q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>
+                                </div>
+                                <p class="text">Nombre d'évènements</p>
+                            </div>
+                            <div class="cont">
+                                <p class="val">{{ club_event_count }}</p>
+                            </div>
+                            <div class="other">
+                                <!-- <p class="text">Dernière:</p> -->
+                                <p class="date">{{ club_last_event_date }}</p>
+                            </div>
+                        </div>
+                        <div class="review-card" id="last-event-nb-participants">
+                            <div class="head">
+                                <div class="svg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm720 0v-120q0-44-24.5-84.5T666-434q51 6 96 20.5t84 35.5q36 20 55 44.5t19 53.5v120H760ZM360-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm400-160q0 66-47 113t-113 47q-11 0-28-2.5t-28-5.5q27-32 41.5-71t14.5-81q0-42-14.5-81T544-792q14-5 28-6.5t28-1.5q66 0 113 47t47 113ZM120-240h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0 320Zm0-400Z"/></svg>
+                                </div>
+                                <p class="text">Nombre de participants (Dernier évènement)</p>
+                            </div>
+                            <div class="cont">
+                                <p class="val">{{ club_last_event_nb_participants }}</p>
+                            </div>
+                            <div class="other">
+                                <div class="icon">
+                                    {% if growth == 0 %}
+                                        <div class="svg" style="color: rgb(253, 205, 13);">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="currentColor"><path d="M200-440v-80h560v80H200Z"/></svg>
+                                        </div>
+                                    {% elif growth > 0 %}
+                                        <div class="svg" style="color: rgb(0, 184, 147);">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="currentColor"><path d="m280-400 200-200 200 200H280Z"/></svg>
+                                        </div>
+                                    {% else %}
+                                        <div class="svg" style="color: rgb(230, 25, 66);">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="currentColor"><path d="M480-360 280-560h400L480-360Z"/></svg>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <p class="growth-part"><span class="growth">{{growth}}</span><span class="inter">soit</span><span class="percent">{{percent}} %</span></p>
+                            </div>
+                        </div>
+                        <div class="review-card" id="best-class">
+                            <div class="head">
+                                <div class="svg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg>
+                                </div>
+                                <p class="text">Meilleure classe (participation)</p>
+                            </div>
+                            <div class="cont">
+                                <p class="val">{{ best_class }}</p>
+                                <p class="text">Avec {{best_count}} participations</p>
+                            </div>
+                        </div>
+                        <div class="review-card" id="history">
+                            <div class="head">
+                                <div class="svg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M480-120q-138 0-240.5-91.5T122-440h82q14 104 92.5 172T480-200q117 0 198.5-81.5T760-480q0-117-81.5-198.5T480-760q-69 0-129 32t-101 88h110v80H120v-240h80v94q51-64 124.5-99T480-840q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-480q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z"/></svg>
+                                </div>
+                                <p class="text">Moyenne participation</p>
+                            </div>
+                            <div class="cont">
+                                <p class="val">{{ average_nb_participants }}</p>
+                                <p class="text">participants en moyenne</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="events">
+                        <div class="events-card">
+                            <canvas id="club_event_participation"></canvas>
+                        </div>
+                        <div class="events-card">
+                            <div id="container">
+                                <div id="header">
+                                    <div id="monthDisplay"></div>
+                                    <div>
+                                        <button id="backButton">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="currentColor"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg>
+                                        </button>
+                                        <button id="nextButton">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="currentColor"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                
+                                <div id="weekdays">
+                                    <div>Dim</div>
+                                    <div>Lun</div>
+                                    <div>Mar</div>
+                                    <div>Mer</div>
+                                    <div>Jeu</div>
+                                    <div>Ven</div>
+                                    <div>Sam</div>
+                                </div>
+                
+                                <div id="calendar"></div>
+                            </div>
+                            <div id="modalBackDrop" class="closed">
+                                <div id="newEventModal">
+                                    <div class="btns">
+                                        <p class="date">{{o_date}}</p>
+                                        <button id="cancelButton">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                                        </button>
+                                    </div>
+                                    {% if event_type == None %}
+                                        <p class="no-event">Pas d'activité pour cette date</p>
+                                    {% else %}
+                                        <div class="event-recap">
+                                            <div class="event-recap-title">
+                                                <div class="event-recap-title-card">
+                                                    <p class="first">Activité organisée</p>
+                                                    <p class="second">{{event_type}}</p>
+                                                </div>
+                                                <div class="event-recap-title-card">
+                                                    <p class="first">Nombre de participants</p>
+                                                    <p class="second">{{event_participants_count}}</p>
+                                                </div>
+                                            </div>
+                                            <!-- <p class="event-recap-title">{{event_type}} ({{event_participants_count}} participants)</p> -->
+                                            <div class="event-recap-cards">
+                                                <div class="event-recap-card">
+                                                    <canvas id="participants_per_class"></canvas>
+                                                </div>
+                                                <div class="event-recap-card">
+                                                    <p class="title">Classe la plus participante</p>
+                                                    <div class="parts">
+                                                        <div class="parts-card">
+                                                            <p class="first">En valeur</p>
+                                                            <p class="second">{{best_count_class_for_date}}</p>
+                                                        </div>
+                                                        <div class="parts-card">
+                                                            <p class="first">En proportion</p>
+                                                            <p class="second">{{best_proportion_class_for_date}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card second">
+                    <p class="title">Club Leadership</p>
+                    <p class="academic_year">{{academic_year}}</p>
+                    <div class="recap">
+                        <div class="recap-card">
+                            <p class="val">{{club_event_type_count}}</p>
+                            <p class="text">Activités</p>
+                        </div>
+                        <div class="recap-card">
+                            <p class="val"><span class="val-m">{{club_relative_popularity}}</span> <span class="val-ext">%</span></p>
+                            <p class="text">Pop. Rel</p>
+                        </div>
+                        <div class="recap-card">
+                            <p class="val"><span class="val-m">{{club_general_popularity}}</span> <span class="val-ext">%</span></p>
+                            <p class="text">Pop. Gen</p>
+                        </div>
+                    </div>
+                    <div class="history">
+                        <p class="text">Historique des évènements</p>
+                        <div class="hist-cont">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Max</th>
+                                        <th>Min</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{max_nb_participants_value}} part.</td>
+                                        <td>{{min_nb_participants_value}} part.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{max_nb_participants_date}}</td>
+                                        <td>{{min_nb_participants_date}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    
+    <script>
+        var ctx = document.querySelector("#club_event_participation").getContext("2d");
+
+        data = {
+            labels: {{ club_event_participation["labels"] | tojson }},
+            datasets: [{
+                data: {{ club_event_participation["values"] | tojson }},
+                borderColor: "rgb(117, 186, 255)",
+                fill: true,
+                pointBackgroundColor: 'rgb(117, 186, 255)',
+                pointBorderWidth: 0,
+                //borderWidth: 2,
+                pointRadius: 0,
+                tension: 0.1,
+            }]
+        };
+
+        config = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            display: true
+                        },
+                        borderColor: 'white',
+                    },
+                    y: {
+                        grid: {
+                            display: true
+                        },
+                        ticks: {
+                            display: true
+                        },
+                        borderColor: '#ffffff',
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                responsive: true,
+            }
+        };
+
+        var pointChart = new Chart(ctx, config)
+    </script>
+    {% if date != None %}
+        <script>
+            var ctx = document.querySelector("#participants_per_class").getContext("2d");
+
+            data = {
+                labels: {{ event_participants_count_per_class["classes"] | tojson }},
+                datasets: [{
+                    data: {{ event_participants_count_per_class["values"] | tojson }},
+                    // borderColor: "rgb(9, 132, 225)",
+                    backgroundColor: 'rgba(9, 132, 225, 0.4)',
+                    fill: true,
+                    pointBackgroundColor: 'rgb(9, 132, 225)',
+                    pointBorderWidth: 0,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    tension: 0.1,
+                }]
+            };
+
+            config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                display: false
+                            },
+                            borderColor: 'white',
+                        },
+                        y: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                display: true
+                            },
+                            borderColor: '#ffffff',
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    responsive: true,
+                }
+            };
+
+            var pointChart = new Chart(ctx, config)
+        </script>
+    {% endif %}
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lead.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+
+

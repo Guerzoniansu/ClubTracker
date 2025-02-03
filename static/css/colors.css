@@ -1,0 +1,60 @@
+:root {
+    /*Sidebar background*/
+    --light-bg: hsl(0, 0%, 100%);
+    --dark-bg: hsl(280, 6%, 10%);
+
+    /*Text colors*/
+    --light-text-color-1: hsl(0, 0%, 7%);
+    --light-text-color-2: hsl(0, 0%, 50%);
+
+    --dark-text-color-1: hsl(0, 0%, 100%);
+    --dark-text-color-2: hsl(264, 5%, 20%);
+
+    /* --dark-grey: hsl(264, 5%, 20%);
+    --light-grey: hsl(210, 17%, 95%); */
+
+    /*Icons*/
+    --light-default-color: hsl(0, 0%, 31%);
+    --light-selected-color: hsl(0, 0%, 100%);
+    --light-selected-bg: hsl(206, 92%, 46%);
+
+    --dark-default-color: hsl(0, 2%, 56%);
+    --dark-selected-color: hsl(0, 0%, 100%);
+    --dark-selected-bg: hsl(206, 92%, 46%);
+
+    /*Highlights*/
+    --light-highlight: hsl(0, 0%, 95%);
+    --dark-highlight: hsl(0, 0%, 17%);
+
+    /*Colors*/
+    --red: rgb(230, 25, 66);
+    --green: rgb(0, 184, 147);
+    --orange: rgb(253, 205, 13);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+
+    /*Borders*/
+    --border: hsl(0, 5%, 85%);
+
+    /*Additional colors*/
+    --color1: #57efc4;
+    --color2: rgb(131, 236, 236);
+    --color3: rgb(117, 186, 255);
+    --color4: rgb(161, 154, 254);
+    --color5: #dee5e8;
+    --color6: hsl(168, 100%, 36%);
+    --color7: rgb(0, 204, 201);
+    --color8: rgb(9, 132, 225);
+    --color9: rgb(108, 92, 230);
+    --color10: hsl(198, 12%, 73%);
+    --color11: hsl(46, 100%, 83%);
+    --color12: rgb(250, 175, 158);
+    --color13: rgb(255, 117, 117);
+    --color14: hsl(339, 96%, 73%);
+    --color15: hsl(196, 7%, 42%);
+    --color16: rgb(253, 203, 109);
+    --color17: rgb(225, 114, 86);
+    --color18: #d62e2e;
+    --color19: hsl(331, 78%, 59%);
+    --color20: hsl(193, 9%, 19%);
+}
