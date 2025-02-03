@@ -17,7 +17,7 @@ Sous Windows : <.\env\Scripts\activate>
 Sous macOS/Linux : « source env/bin/activate »
 
 - Installer les paquets à partir du fichier requirements.txt : <pip install -r requirements.txt>
-- Lancer l'application : <python app.py>
+- Lancer l'application : « python app.py »
 
 Vous devriez voir s'afficher l'application sur un port en localhost
 
