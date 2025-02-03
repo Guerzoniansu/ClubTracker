@@ -17,6 +17,10 @@ Sous Windows : <.\env\Scripts\activate>
 Sous macOS/Linux : « source env/bin/activate »
 
 - Installer les paquets à partir du fichier requirements.txt : <pip install -r requirements.txt>
+
+- Installer MYSQL Workbench
+- Sur Workbench, exécuter le fichier database.sql afin de créer la base de données
+
 - Lancer l'application : « python app.py »
 
 Vous devriez voir s'afficher l'application sur un port en localhost
