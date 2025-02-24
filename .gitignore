@@ -1,1 +1,3 @@
 .venv/
+db.config.txt
+.env
