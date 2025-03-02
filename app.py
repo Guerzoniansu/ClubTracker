@@ -2,16 +2,27 @@ from flask import Flask, request, render_template
 from flask_mysqldb import MySQL
 from datetime import datetime
 
+import os
+from dotenv import load_dotenv # For loading .env components
+
+load_dotenv()
+
+# Retrieve variables
+HOST = os.getenv("HOST")
+DB = os.getenv("DB")
+USER = os.getenv("USER")
+PASSWORD = os.getenv("PASSWORD")
+
 from extern import fetch # fetch file
 
 app = Flask(__name__)
 
 # MySQL configurations
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = HOST
 app.config['MYSQL_PORT'] = 3306
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'mysqlworkbenchBlessing16@#'
-app.config['MYSQL_DB'] = 'clubs_management'
+app.config['MYSQL_USER'] = USER
+app.config['MYSQL_PASSWORD'] = PASSWORD
+app.config['MYSQL_DB'] = DB
 
 mysql = MySQL(app)
 
